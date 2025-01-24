@@ -55,9 +55,21 @@ func _shooting():
 		scale = _calculated_player_scale()
 	else:
 		shooting_collider.disabled = true
+	_shooting_movement(shooting_input)	
 		
+
+func _shooting_movement(shooting_input):
+	if shooting_input == Vector2.RIGHT:
+		velocity.x += -SPEED
+	if shooting_input == Vector2.LEFT:
+		velocity.x += SPEED
+	if shooting_input == Vector2.DOWN:
+		velocity.y = JUMP_VELOCITY
+	if shooting_input == Vector2.UP:
+		velocity.y = -JUMP_VELOCITY
 
 func _calculated_player_scale() -> Vector2:
 	var scaleMult : float = bubble_quantity / max_bubble_quantity
 	var result = initial_scale * scaleMult
 	return result
+
