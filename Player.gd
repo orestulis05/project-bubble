@@ -4,6 +4,11 @@ extends CharacterBody2D
 @onready var shooting_area: Area2D = $"Shooting Area Pivot/Shooting Area"
 @onready var shooting_collider: CollisionShape2D = $"Shooting Area Pivot/Shooting Area/CollisionShape2D"
 
+@export var max_bubble_quantity : float = 100.0
+@onready var bubble_quantity : float = max_bubble_quantity
+@onready var initial_scale : Vector2 = scale
+@export var bubble_decrease_rate : float = 0.5
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const BULLET_SPEED = 200.0
@@ -15,13 +20,13 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		
-	_movement_keyboard()
+    
+	_movement()
 	_shooting()
 
 	move_and_slide()
 	
-func _movement_keyboard():
+func _movement():
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -48,5 +53,25 @@ func _shooting():
 			
 	else:
 		shooting_collider.disabled = true
-		
 	
+	if shooting_input.length() != 0:
+		shooting_collider.disabled = false
+		if shooting_input == Vector2.RIGHT:
+			shooting_area_pivot.rotation_degrees = 0
+		if shooting_input == Vector2.DOWN:
+			shooting_area_pivot.rotation_degrees = 90
+		if shooting_input == Vector2.LEFT:
+			shooting_area_pivot.rotation_degrees = 180
+		if shooting_input == Vector2.UP:
+			shooting_area_pivot.rotation_degrees = 270
+		bubble_quantity -= bubble_decrease_rate
+		#print(bubble_quantity)
+		scale = _calculated_player_scale()
+	else:
+		shooting_collider.disabled = true
+		
+
+func _calculated_player_scale() -> Vector2:
+	var scaleMult : float = bubble_quantity / max_bubble_quantity
+	var result = initial_scale * scaleMult
+	return result
