@@ -4,6 +4,11 @@ extends CharacterBody2D
 @onready var shooting_area: Area2D = $"Shooting Area Pivot/Shooting Area"
 @onready var shooting_collider: CollisionShape2D = $"Shooting Area Pivot/Shooting Area/CollisionShape2D"
 
+@export var max_bubble_quantity : float = 100.0
+@onready var bubble_quantity : float = max_bubble_quantity
+@onready var initial_scale : Vector2 = scale
+@export var bubble_decrease_rate : float = 0.5
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const BULLET_SPEED = 200.0
@@ -18,7 +23,6 @@ func _physics_process(delta: float) -> void:
 		
 	_movement()
 	_shooting()
-
 
 	move_and_slide()
 	
@@ -46,8 +50,14 @@ func _shooting():
 			shooting_area_pivot.rotation_degrees = 180
 		if shooting_input == Vector2.UP:
 			shooting_area_pivot.rotation_degrees = 270
-			
+		bubble_quantity -= bubble_decrease_rate
+		#print(bubble_quantity)
+		scale = _calculated_player_scale()
 	else:
 		shooting_collider.disabled = true
 		
-	
+
+func _calculated_player_scale() -> Vector2:
+	var scaleMult : float = bubble_quantity / max_bubble_quantity
+	var result = initial_scale * scaleMult
+	return result
