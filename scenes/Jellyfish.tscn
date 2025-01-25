@@ -1,7 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://xkyofka08ymv"]
+[gd_scene load_steps=10 format=3 uid="uid://xkyofka08ymv"]
 
-[ext_resource type="Texture2D" uid="uid://3lbad4ppcyd2" path="res://textures/16x16_rect.png" id="1_7mf10"]
 [ext_resource type="Script" path="res://scripts/jellyfish.gd" id="1_qo2dn"]
+[ext_resource type="Texture2D" uid="uid://b15kul56jcfpo" path="res://textures/jelly.png" id="2_ma8tx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6vds"]
+atlas = ExtResource("2_ma8tx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ns3p"]
+atlas = ExtResource("2_ma8tx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oewgg"]
+atlas = ExtResource("2_ma8tx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gojb"]
+atlas = ExtResource("2_ma8tx")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gtlco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6vds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ns3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oewgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gojb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6nl7"]
 size = Vector2(63.5, 63.5)
@@ -12,11 +48,14 @@ size = Vector2(75, 75)
 [node name="Jellyfish" type="RigidBody2D"]
 script = ExtResource("1_qo2dn")
 
-[node name="16x16Rect" type="Sprite2D" parent="."]
+[node name="16x16Rect" type="AnimatedSprite2D" parent="."]
 modulate = Color(0, 0.478431, 1, 1)
-position = Vector2(-9.25, 9.25)
-scale = Vector2(3.78125, 3.78125)
-texture = ExtResource("1_7mf10")
+texture_filter = 1
+position = Vector2(-9, 9.5)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_gtlco")
+autoplay = "default"
+frame_progress = 0.266108
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8.75, 8.75)
