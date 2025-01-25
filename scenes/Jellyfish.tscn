@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://xkyofka08ymv"]
+
+[ext_resource type="Texture2D" uid="uid://3lbad4ppcyd2" path="res://textures/16x16_rect.png" id="1_7mf10"]
+[ext_resource type="Script" path="res://scripts/jellyfish.gd" id="1_qo2dn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6nl7"]
+size = Vector2(63.5, 63.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xnsc"]
+size = Vector2(75, 75)
+
+[node name="Jellyfish" type="RigidBody2D"]
+script = ExtResource("1_qo2dn")
+
+[node name="16x16Rect" type="Sprite2D" parent="."]
+modulate = Color(0, 0.478431, 1, 1)
+position = Vector2(-9.25, 9.25)
+scale = Vector2(3.78125, 3.78125)
+texture = ExtResource("1_7mf10")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8.75, 8.75)
+shape = SubResource("RectangleShape2D_v6nl7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-8.5, 9.5)
+shape = SubResource("RectangleShape2D_2xnsc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

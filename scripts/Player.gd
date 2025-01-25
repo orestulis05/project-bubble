@@ -12,6 +12,9 @@ extends CharacterBody2D
 @export var speed = 300.0
 @export var jump_velocity = -400.0
 @export var bullet_speed = 200.0
+var stunned = false
+var is_shooting = false
+var shooting_input: Vector2
 
 func _ready() -> void:
 	shooting_collider.disabled = true
@@ -34,26 +37,33 @@ func _physics_process(delta: float) -> void:
 	
 func _movement():
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
-		
-	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+	if (!stunned):
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = jump_velocity
+			
+		var direction := Input.get_axis("move_left", "move_right")
+		if direction:
+			velocity.x = direction * speed
+		else:
+			if (is_shooting):
+				velocity.x = move_toward(velocity.x, 0, speed)
+			else:
+				velocity.x = move_toward(velocity.x, 0, 20)
 		
 func _shooting():
-	var shooting_input : Vector2 = Vector2(Input.get_axis("shoot_left", "shoot_right"), Input.get_axis("shoot_up", "shoot_down"))
-
-	if shooting_input.length() != 0:
-		shooting_area_pivot.rotation_degrees = _calculated_shooting_angle(shooting_input)
-		shooting_collider.disabled = false
-		bubble_quantity -= bubble_decrease_rate
-		scale = _calculated_player_scale()
-	else:
-		shooting_collider.disabled = true
-	_shooting_movement(shooting_input)	
+	shooting_input = Vector2(Input.get_axis("shoot_left", "shoot_right"), Input.get_axis("shoot_up", "shoot_down"))
+	
+	if(!stunned):
+		if shooting_input.length() != 0:
+			is_shooting = true
+			shooting_area_pivot.rotation_degrees = _calculated_shooting_angle(shooting_input)
+			shooting_collider.disabled = false
+			bubble_quantity -= bubble_decrease_rate
+			scale = calculated_player_scale()
+		else:
+			is_shooting = false
+			shooting_collider.disabled = true
+		_shooting_movement(shooting_input)	
 
 func _shooting_movement(shooting_input):
 	if shooting_input.length() > 0:
@@ -63,7 +73,7 @@ func _shooting_movement(shooting_input):
 			velocity.y += shooting_input.y * -speed * 0.3
 		velocity.x += shooting_input.x * -speed
 
-func _calculated_player_scale() -> Vector2:
+func calculated_player_scale() -> Vector2:
 	var scaleMult : float = bubble_quantity / max_bubble_quantity
 	var result = initial_scale * scaleMult
 	return result

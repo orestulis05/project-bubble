@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://ofc4w6qbybja"]
+[gd_scene load_steps=11 format=4 uid="uid://ofc4w6qbybja"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_jpoeo"]
 [ext_resource type="Texture2D" uid="uid://3lbad4ppcyd2" path="res://textures/16x16_rect.png" id="2_6frku"]
 [ext_resource type="Script" path="res://scripts/RoomCamera.gd" id="3_w6ss1"]
 [ext_resource type="Script" path="res://scripts/pause.gd" id="4_wxmsw"]
+[ext_resource type="PackedScene" uid="uid://xkyofka08ymv" path="res://scenes/Jellyfish.tscn" id="5_77sfc"]
+[ext_resource type="PackedScene" uid="uid://cvhudtlceyxml" path="res://scenes/spike.tscn" id="6_pngjr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqphe"]
 size = Vector2(16, 16)
@@ -104,6 +106,20 @@ process_mode = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Main Menu"
+
+[node name="Jellyfishes" type="Node" parent="."]
+
+[node name="Jellyfish" parent="Jellyfishes" instance=ExtResource("5_77sfc")]
+position = Vector2(462, 405)
+
+[node name="Spike" parent="." instance=ExtResource("6_pngjr")]
+position = Vector2(786, 451)
+
+[node name="Spike2" parent="." instance=ExtResource("6_pngjr")]
+position = Vector2(813, 451)
+
+[node name="Spike3" parent="." instance=ExtResource("6_pngjr")]
+position = Vector2(840, 451)
 
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Button" to="UI/Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Button2" to="UI/Pause" method="_on_button_2_pressed"]
