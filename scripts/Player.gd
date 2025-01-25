@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var max_bubble_quantity : float = 100.0
 @onready var bubble_quantity : float = max_bubble_quantity
 @onready var initial_scale : Vector2 = scale
-@export var bubble_decrease_rate : float = 0.5
+@export var bubble_decrease_rate : float = 0.3
 @onready var animated_sprite: AnimatedSprite2D = %animated_sprite
 @onready var legs: Sprite2D = %legs
 @onready var bubbles: GPUParticles2D = %bubbles
@@ -36,10 +36,10 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	# Change color
-	if bubble_quantity <= 50:
+	if bubble_quantity <= 70:
 		$animated_sprite.modulate = Color.RED
 		$legs.modulate = Color.RED
-	if bubble_quantity <= 25:
+	if bubble_quantity <= 40:
 		Globals.continue_game()
 	
 	move_and_slide()
