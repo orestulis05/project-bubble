@@ -6,9 +6,8 @@ extends Node
 func _process(delta: float) -> void:
 	var esc_pressed = Input.is_action_just_pressed("pause")
 	if (esc_pressed == true):
-		get_tree().paused = true
-		pause_panel.show()
-
+		get_tree().paused = !get_tree().paused
+		pause_panel.visible = !pause_panel.visible
 
 func _on_button_pressed() -> void:
 	pause_panel.hide()
