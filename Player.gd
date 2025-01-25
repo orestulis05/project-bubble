@@ -72,4 +72,3 @@ func _calculated_player_scale() -> Vector2:
 	var scaleMult : float = bubble_quantity / max_bubble_quantity
 	var result = initial_scale * scaleMult
 	return result
-
