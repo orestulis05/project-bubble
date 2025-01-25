@@ -15,7 +15,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if (body.name == "Player"):
 		var delta_y = position.y - body.position.y
 		var delta_x = position.x - body.position.x
-		print(delta_x)
 		if (delta_y > 30):
 			body.velocity.y = body.jump_velocity * 1.5
 		else:
@@ -25,11 +24,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			if (delta_x > 0):
 				body.velocity.y = body.jump_velocity
 				body.velocity.x = -body.speed * 0.75
-				print(body.velocity.x)
 			else:
 				body.velocity.y = body.jump_velocity
 				body.velocity.x = body.speed * 0.75
-				print(body.velocity.x)
 
 func _stunned(player):
 	player.stunned = true
