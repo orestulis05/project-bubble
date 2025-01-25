@@ -21,7 +21,6 @@ sources/0 = SubResource("TileSetAtlasSource_c1l73")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_ivujm")]
 unique_name_in_owner = true
-collision_layer = 3
 
 [node name="Tile Layers" type="Node2D" parent="."]
 
@@ -86,9 +85,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Main Menu"
 
-[node name="Geyser (Checkpoint)" type="Area2D" parent="." groups=["Checkpoint"]]
-position = Vector2(253, 416)
-collision_mask = 2
+[node name="Geyser (Checkpoint)" type="Area2D" parent="."]
 script = ExtResource("5_b1rff")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Geyser (Checkpoint)"]
@@ -99,21 +96,5 @@ modulate = Color(0.803922, 0.423529, 0, 0.552941)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("2_6frku")
 
-[node name="Geyser (Checkpoint)2" type="Area2D" parent="." groups=["Checkpoint"]]
-position = Vector2(919, 435)
-collision_mask = 2
-script = ExtResource("5_b1rff")
-checkpoint_id = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Geyser (Checkpoint)2"]
-shape = SubResource("RectangleShape2D_6ssl7")
-
-[node name="Sprite" type="Sprite2D" parent="Geyser (Checkpoint)2"]
-modulate = Color(0.803922, 0.423529, 0, 0.552941)
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("2_6frku")
-
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Button" to="UI/Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Button2" to="UI/Pause" method="_on_button_2_pressed"]
-[connection signal="body_entered" from="Geyser (Checkpoint)" to="Geyser (Checkpoint)" method="_on_body_entered"]
-[connection signal="body_entered" from="Geyser (Checkpoint)2" to="Geyser (Checkpoint)2" method="_on_body_entered"]
