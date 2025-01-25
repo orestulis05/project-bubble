@@ -8,6 +8,9 @@ extends CharacterBody2D
 @onready var bubble_quantity : float = max_bubble_quantity
 @onready var initial_scale : Vector2 = scale
 @export var bubble_decrease_rate : float = 0.5
+@onready var animated_sprite: AnimatedSprite2D = %animated_sprite
+@onready var legs: Sprite2D = %legs
+@onready var bubbles: GPUParticles2D = %bubbles
 
 @export var speed = 300.0
 @export var jump_velocity = -400.0
@@ -18,6 +21,7 @@ var shooting_input: Vector2
 
 func _ready() -> void:
 	shooting_collider.disabled = true
+	bubbles.emitting = false
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("reload"):
@@ -33,14 +37,37 @@ func _physics_process(delta: float) -> void:
 	
 	# Change color
 	if bubble_quantity <= 50:
-		$Rect.modulate = Color.RED
+		$animated_sprite.modulate = Color.RED
+		$legs.modulate = Color.RED
 	if bubble_quantity <= 25:
 		Globals.continue_game()
 	
 	move_and_slide()
 	
 func _movement():
+	if is_shooting:
+		var degrees = _calculated_shooting_angle(shooting_input)
+		animated_sprite.rotation_degrees = degrees
+		animated_sprite.animation = "blowing"
+		legs.show()
+		bubbles.emitting = true
+	elif not is_on_floor():
+		animated_sprite.rotation_degrees = 0
+		legs.hide()
+		bubbles.emitting = false
+		animated_sprite.animation = "jumping"	
+	elif (velocity.x > 1 || velocity.x < -1):
+		animated_sprite.rotation_degrees = 0
+		legs.hide()
+		bubbles.emitting = false
+		animated_sprite.animation = "running"
+	else:
+		animated_sprite.rotation_degrees = 0
+		legs.hide()
+		bubbles.emitting = false
+		animated_sprite.animation = "idle"
 	# Handle jump.
+		
 	if (!stunned):
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = jump_velocity
@@ -53,6 +80,9 @@ func _movement():
 				velocity.x = move_toward(velocity.x, 0, speed)
 			else:
 				velocity.x = move_toward(velocity.x, 0, 20)
+				
+		var isLeft = velocity.x < 0
+		animated_sprite.flip_h = isLeft
 		
 func _shooting():
 	shooting_input = Vector2(Input.get_axis("shoot_left", "shoot_right"), Input.get_axis("shoot_up", "shoot_down"))
@@ -65,6 +95,7 @@ func _shooting():
 			bubble_quantity -= bubble_decrease_rate
 			scale = calculated_player_scale()
 		else:
+			legs.hide()
 			is_shooting = false
 			shooting_collider.disabled = true
 		_shooting_movement(shooting_input)	

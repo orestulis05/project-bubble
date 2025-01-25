@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nwqswxwr2ppd"
-path="res://.godot/imported/bubble_idle.png-cc8300f0f43d69b264136000cc35e4f0.ctex"
+uid="uid://bf6kkwrq7nxn7"
+path="res://.godot/imported/bubble_blowing_base.png-67bab7f7cafc5391cdb0e9d923a2a3ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/bubble_idle.png"
-dest_files=["res://.godot/imported/bubble_idle.png-cc8300f0f43d69b264136000cc35e4f0.ctex"]
+source_file="res://textures/bubble_blowing_base.png"
+dest_files=["res://.godot/imported/bubble_blowing_base.png-67bab7f7cafc5391cdb0e9d923a2a3ed.ctex"]
 
 [params]
 

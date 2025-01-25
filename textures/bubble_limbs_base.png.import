@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nwqswxwr2ppd"
-path="res://.godot/imported/bubble_idle.png-cc8300f0f43d69b264136000cc35e4f0.ctex"
+uid="uid://cqsu24xica7lk"
+path="res://.godot/imported/bubble_limbs_base.png-af2ea73fa484cf00277a301f5d48171d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/bubble_idle.png"
-dest_files=["res://.godot/imported/bubble_idle.png-cc8300f0f43d69b264136000cc35e4f0.ctex"]
+source_file="res://textures/bubble_limbs_base.png"
+dest_files=["res://.godot/imported/bubble_limbs_base.png-af2ea73fa484cf00277a301f5d48171d.ctex"]
 
 [params]
 

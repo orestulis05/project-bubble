@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nwqswxwr2ppd"
-path="res://.godot/imported/bubble_idle.png-cc8300f0f43d69b264136000cc35e4f0.ctex"
+uid="uid://dboxd84on4gf6"
+path="res://.godot/imported/bubble_run_placehold.png-02a5804b9a800615b3fcb717829fbfbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/bubble_idle.png"
-dest_files=["res://.godot/imported/bubble_idle.png-cc8300f0f43d69b264136000cc35e4f0.ctex"]
+source_file="res://textures/bubble_run_placehold.png"
+dest_files=["res://.godot/imported/bubble_run_placehold.png-02a5804b9a800615b3fcb717829fbfbd.ctex"]
 
 [params]
 
