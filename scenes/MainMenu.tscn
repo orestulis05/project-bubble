@@ -1,6 +1,67 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyao04nmdiir0"]
+[gd_scene load_steps=20 format=3 uid="uid://cyao04nmdiir0"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_h3u52"]
+[ext_resource type="Texture2D" uid="uid://4vyojg4eja4c" path="res://textures/main_menu/titlescreenbc.png" id="2_67pbb"]
+[ext_resource type="Texture2D" uid="uid://3vbxo2nmeloy" path="res://textures/main_menu/title.png" id="3_w1hy8"]
+[ext_resource type="Texture2D" uid="uid://dcmqtsa0df47v" path="res://textures/main_menu/wavingbubbleman.png" id="4_3xr2q"]
+[ext_resource type="Texture2D" uid="uid://cp1i03yal5mc0" path="res://textures/main_menu/options.png" id="5_3anfa"]
+[ext_resource type="Texture2D" uid="uid://daudc2eor3lom" path="res://textures/main_menu/options-export.png" id="6_6r5ol"]
+[ext_resource type="Texture2D" uid="uid://bl4c2skpori46" path="res://textures/main_menu/exit.png" id="6_sd2a3"]
+[ext_resource type="Texture2D" uid="uid://bodn7n784rrab" path="res://textures/main_menu/start.png" id="7_lm3ie"]
+[ext_resource type="Texture2D" uid="uid://cdbv8oby7seao" path="res://textures/main_menu/exit_hover.png" id="8_a6tyc"]
+[ext_resource type="Texture2D" uid="uid://dtk55h1ecgfw6" path="res://textures/main_menu/continue.png" id="8_klcl7"]
+[ext_resource type="Texture2D" uid="uid://4knvke3hxhva" path="res://textures/main_menu/start-export.png" id="10_ewa3b"]
+[ext_resource type="Texture2D" uid="uid://c45fk370vdf5t" path="res://textures/main_menu/continue_hover.png" id="12_8lppp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y871n"]
+atlas = ExtResource("4_3xr2q")
+region = Rect2(0, 0, 383, 323)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds4ld"]
+atlas = ExtResource("4_3xr2q")
+region = Rect2(383, 0, 383, 323)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x51yg"]
+atlas = ExtResource("4_3xr2q")
+region = Rect2(766, 0, 383, 323)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrgww"]
+atlas = ExtResource("4_3xr2q")
+region = Rect2(1149, 0, 383, 323)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kffp"]
+atlas = ExtResource("4_3xr2q")
+region = Rect2(1532, 0, 383, 323)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qdf7"]
+atlas = ExtResource("4_3xr2q")
+region = Rect2(1915, 0, 383, 323)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_37bf7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y871n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds4ld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x51yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrgww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kffp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qdf7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,48 +72,78 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h3u52")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -119.5
-offset_top = -106.0
-offset_right = 119.5
-offset_bottom = 106.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Titlescreenbc" type="Sprite2D" parent="."]
+position = Vector2(352, 239)
+texture = ExtResource("2_67pbb")
 
-[node name="NewGame" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-focus_neighbor_bottom = NodePath("../Continue")
-theme_override_font_sizes/font_size = 30
-action_mode = 0
-text = "New Game"
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(378, 106)
+scale = Vector2(0.802405, 0.802405)
+texture = ExtResource("3_w1hy8")
 
-[node name="Continue" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../NewGame")
-focus_neighbor_bottom = NodePath("../Options")
-theme_override_font_sizes/font_size = 30
-text = "Continue"
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(553, 338)
+scale = Vector2(0.868421, 0.868421)
+sprite_frames = SubResource("SpriteFrames_37bf7")
+frame_progress = 0.128454
 
-[node name="Options" type="Button" parent="VBoxContainer"]
+[node name="Options" type="TextureButton" parent="."]
 layout_mode = 2
+offset_top = 264.0
+offset_right = 208.0
+offset_bottom = 372.0
 focus_neighbor_top = NodePath("../Continue")
 focus_neighbor_bottom = NodePath("../Exit")
-theme_override_font_sizes/font_size = 30
-text = "Options"
+texture_normal = ExtResource("5_3anfa")
+texture_pressed = ExtResource("5_3anfa")
+texture_hover = ExtResource("6_6r5ol")
+texture_disabled = ExtResource("5_3anfa")
+texture_focused = ExtResource("6_6r5ol")
 
-[node name="Exit" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="Exit" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -108.0
+offset_right = 208.0
+grow_vertical = 0
 focus_neighbor_top = NodePath("../Options")
-theme_override_font_sizes/font_size = 30
-text = "Exit"
+texture_normal = ExtResource("6_sd2a3")
+texture_pressed = ExtResource("6_sd2a3")
+texture_hover = ExtResource("8_a6tyc")
+texture_disabled = ExtResource("6_sd2a3")
+texture_focused = ExtResource("8_a6tyc")
 
-[connection signal="pressed" from="VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[node name="NewGame" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 208.0
+offset_top = 264.0
+offset_right = 416.0
+offset_bottom = 372.0
+focus_neighbor_bottom = NodePath("../Continue")
+action_mode = 0
+texture_normal = ExtResource("7_lm3ie")
+texture_pressed = ExtResource("7_lm3ie")
+texture_hover = ExtResource("10_ewa3b")
+texture_disabled = ExtResource("7_lm3ie")
+texture_focused = ExtResource("10_ewa3b")
+
+[node name="Continue" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 208.0
+offset_top = 372.0
+offset_right = 416.0
+offset_bottom = 480.0
+focus_neighbor_top = NodePath("../NewGame")
+focus_neighbor_bottom = NodePath("../Options")
+texture_normal = ExtResource("8_klcl7")
+texture_pressed = ExtResource("8_klcl7")
+texture_hover = ExtResource("12_8lppp")
+texture_disabled = ExtResource("8_klcl7")
+texture_focused = ExtResource("12_8lppp")
+
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]

@@ -2,7 +2,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$VBoxContainer/NewGame.grab_focus()
+	$NewGame.grab_focus()
 
 func _on_new_game_pressed() -> void:
 	var save := SaveFile.new()

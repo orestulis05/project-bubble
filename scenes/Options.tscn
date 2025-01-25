@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://j22d5p1pqpts"]
+[gd_scene load_steps=5 format=3 uid="uid://j22d5p1pqpts"]
 
 [ext_resource type="Script" path="res://scripts/options.gd" id="1_2vp70"]
+[ext_resource type="Texture2D" uid="uid://bacjyxq8jwa3k" path="res://textures/main_menu/optionscreen.png" id="2_akh16"]
+[ext_resource type="Texture2D" uid="uid://bl4c2skpori46" path="res://textures/main_menu/exit.png" id="3_2oxnc"]
+[ext_resource type="Texture2D" uid="uid://cdbv8oby7seao" path="res://textures/main_menu/exit_hover.png" id="4_llo0o"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -11,6 +14,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2vp70")
 
+[node name="Optionscreen" type="Sprite2D" parent="."]
+position = Vector2(353, 240)
+texture = ExtResource("2_akh16")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -19,9 +26,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -276.0
-offset_top = -44.0
-offset_right = 276.0
-offset_bottom = 44.0
+offset_top = -122.0
+offset_right = 248.0
+offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -49,22 +56,25 @@ text = "V-Sync"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -25.0
-offset_top = -174.0
-offset_right = 63.0
-offset_bottom = -103.0
+offset_left = -91.0
+offset_top = -253.0
+offset_right = 109.0
+offset_bottom = -153.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_type_variation = &"FlatButton"
-theme_override_font_sizes/font_size = 45
-text = "Exit"
+texture_normal = ExtResource("3_2oxnc")
+texture_pressed = ExtResource("3_2oxnc")
+texture_hover = ExtResource("4_llo0o")
+texture_disabled = ExtResource("3_2oxnc")
+texture_focused = ExtResource("4_llo0o")
 
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/fullscreen2" to="." method="_on_check_button_toggled"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer2/V-Sync2" to="." method="_on_v_sync_2_toggled"]
