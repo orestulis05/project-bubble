@@ -1,14 +1,13 @@
 extends Node
 
-
-
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("reload"):
-		get_tree().reload_current_scene()
 const SAVE_FILE_PATH : String = "user://save_file.tres"
 var player_scene = preload("res://scenes/Player.tscn")
 
 var current_checkpoint : int = 0
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("reload"):
+		continue_game()
 
 func save_game(current_scene_path, checkpoint_id):
 	var save := SaveFile.new()
@@ -29,8 +28,8 @@ func continue_game():
 		spawn_pos = checkpoints[0].global_position
 		for point in checkpoints:
 			if point.checkpoint_id == save.last_checkpoint_id:
-				print ("Nepraejo")
 				current_checkpoint = save.last_checkpoint_id
 				spawn_pos = point.global_position
+				print("Loaded to ", current_checkpoint)
 	 
 	player.global_position = spawn_pos

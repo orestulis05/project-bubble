@@ -1,27 +1,105 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcjs1my3xjc2h"]
+[gd_scene load_steps=11 format=3 uid="uid://dcjs1my3xjc2h"]
 
 [ext_resource type="Script" path="res://angler_fish.gd" id="1_wwjfq"]
 [ext_resource type="Texture2D" uid="uid://dpc8eulqxwdvs" path="res://textures/angler fish/angler_normal.png" id="2_3j1po"]
+[ext_resource type="Texture2D" uid="uid://bb5h7o4p21rly" path="res://textures/angler fish/angler_evil.png" id="3_yflgp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_83ywm"]
-size = Vector2(24, 12)
+size = Vector2(9.8093, 4.13023)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vofgc"]
-radius = 105.019
+radius = 27.6807
+
+[sub_resource type="Animation" id="Animation_kwa72"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_3j1po")]
+}
+
+[sub_resource type="Animation" id="Animation_orr4p"]
+resource_name = "normal"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_3j1po")]
+}
+
+[sub_resource type="Animation" id="Animation_t48qa"]
+resource_name = "raged"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_yflgp")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h1aps"]
+_data = {
+"RESET": SubResource("Animation_kwa72"),
+"normal": SubResource("Animation_orr4p"),
+"raged": SubResource("Animation_t48qa")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yb7h5"]
+size = Vector2(42, 21)
 
 [node name="Angler Fish" type="CharacterBody2D"]
 texture_filter = 1
 script = ExtResource("1_wwjfq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(9.53674e-07, 5)
+scale = Vector2(3.87388, 3.87388)
 shape = SubResource("RectangleShape2D_83ywm")
 
-[node name="AnglerNormal" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -2)
+scale = Vector2(2, 2)
 texture = ExtResource("2_3j1po")
 
 [node name="Detection Zone" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Zone"]
+scale = Vector2(4.55707, 4.55707)
 shape = SubResource("CircleShape2D_vofgc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h1aps")
+}
+autoplay = "normal"
+
+[node name="Kill Area" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Area"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_yb7h5")
+
+[connection signal="body_entered" from="Detection Zone" to="." method="_on_detection_zone_body_entered"]
+[connection signal="body_entered" from="Kill Area" to="." method="_on_kill_area_body_entered"]

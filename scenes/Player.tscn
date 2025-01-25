@@ -176,6 +176,7 @@ alpha_curve = SubResource("CurveTexture_7r5y5")
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(3, 3)
+collision_layer = 3
 script = ExtResource("1_6lfdg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
