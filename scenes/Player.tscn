@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://df4q0jnn83r3d"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_6lfdg"]
+[ext_resource type="Texture2D" uid="uid://3lbad4ppcyd2" path="res://textures/16x16_rect.png" id="2_6utwf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqphe"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aftbe"]
+size = Vector2(56, 12)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(252, 395)
+scale = Vector2(5, 5)
+script = ExtResource("1_6lfdg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vqphe")
+
+[node name="Rect" type="Sprite2D" parent="."]
+texture = ExtResource("2_6utwf")
+
+[node name="Shooting Area Pivot" type="Node2D" parent="."]
+
+[node name="Shooting Area" type="Area2D" parent="Shooting Area Pivot"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shooting Area Pivot/Shooting Area"]
+position = Vector2(37, 0)
+shape = SubResource("RectangleShape2D_aftbe")

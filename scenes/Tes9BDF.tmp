@@ -1,20 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://ofc4w6qbybja"]
+[gd_scene load_steps=9 format=4 uid="uid://ofc4w6qbybja"]
 
-[ext_resource type="Script" path="res://scripts/Player.gd" id="1_jpoeo"]
 [ext_resource type="PackedScene" uid="uid://df4q0jnn83r3d" path="res://scenes/Player.tscn" id="1_ivujm"]
 [ext_resource type="Texture2D" uid="uid://3lbad4ppcyd2" path="res://textures/16x16_rect.png" id="2_6frku"]
 [ext_resource type="Script" path="res://scripts/RoomCamera.gd" id="3_w6ss1"]
 [ext_resource type="Script" path="res://scripts/pause.gd" id="4_wxmsw"]
-
-[ext_resource type="PackedScene" uid="uid://xkyofka08ymv" path="res://scenes/Jellyfish.tscn" id="5_77sfc"]
-[ext_resource type="PackedScene" uid="uid://cvhudtlceyxml" path="res://scenes/spike.tscn" id="6_pngjr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqphe"]
-size = Vector2(16, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aftbe"]
-size = Vector2(56, 12)
-
 [ext_resource type="Script" path="res://scripts/checkpoint.gd" id="5_b1rff"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c1l73"]
@@ -32,7 +21,6 @@ sources/0 = SubResource("TileSetAtlasSource_c1l73")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_ivujm")]
 unique_name_in_owner = true
-collision_layer = 3
 
 [node name="Tile Layers" type="Node2D" parent="."]
 
@@ -97,22 +85,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Main Menu"
 
-[node name="Jellyfishes" type="Node" parent="."]
-
-[node name="Jellyfish" parent="Jellyfishes" instance=ExtResource("5_77sfc")]
-position = Vector2(462, 405)
-
-[node name="Spike" parent="." instance=ExtResource("6_pngjr")]
-position = Vector2(786, 451)
-
-[node name="Spike2" parent="." instance=ExtResource("6_pngjr")]
-position = Vector2(813, 451)
-
-[node name="Spike3" parent="." instance=ExtResource("6_pngjr")]
-position = Vector2(840, 451)
-[node name="Geyser (Checkpoint)" type="Area2D" parent="." groups=["Checkpoint"]]
-position = Vector2(253, 416)
-collision_mask = 2
+[node name="Geyser (Checkpoint)" type="Area2D" parent="."]
 script = ExtResource("5_b1rff")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Geyser (Checkpoint)"]
@@ -123,21 +96,5 @@ modulate = Color(0.803922, 0.423529, 0, 0.552941)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("2_6frku")
 
-[node name="Geyser (Checkpoint)2" type="Area2D" parent="." groups=["Checkpoint"]]
-position = Vector2(919, 435)
-collision_mask = 2
-script = ExtResource("5_b1rff")
-checkpoint_id = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Geyser (Checkpoint)2"]
-shape = SubResource("RectangleShape2D_6ssl7")
-
-[node name="Sprite" type="Sprite2D" parent="Geyser (Checkpoint)2"]
-modulate = Color(0.803922, 0.423529, 0, 0.552941)
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("2_6frku")
-
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Button" to="UI/Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Button2" to="UI/Pause" method="_on_button_2_pressed"]
-[connection signal="body_entered" from="Geyser (Checkpoint)" to="Geyser (Checkpoint)" method="_on_body_entered"]
-[connection signal="body_entered" from="Geyser (Checkpoint)2" to="Geyser (Checkpoint)2" method="_on_body_entered"]

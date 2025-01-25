@@ -19,6 +19,10 @@ var shooting_input: Vector2
 func _ready() -> void:
 	shooting_collider.disabled = true
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("reload"):
+		Globals.continue_game()
+
 func _physics_process(delta: float) -> void:
 	_movement()
 	_shooting()
@@ -31,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	if bubble_quantity <= 50:
 		$Rect.modulate = Color.RED
 	if bubble_quantity <= 25:
-		get_tree().reload_current_scene()
+		Globals.continue_game()
 	
 	move_and_slide()
 	
@@ -77,7 +81,6 @@ func calculated_player_scale() -> Vector2:
 	var scaleMult : float = bubble_quantity / max_bubble_quantity
 	var result = initial_scale * scaleMult
 	return result
-
 
 func _calculated_shooting_angle(input : Vector2) -> float:
 	var dot : float
