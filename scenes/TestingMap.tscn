@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://djsos3pub4rku"]
+[gd_scene load_steps=8 format=4 uid="uid://ofc4w6qbybja"]
 
-[ext_resource type="PackedScene" uid="uid://df4q0jnn83r3d" path="res://scenes/Player.tscn" id="1_sljc5"]
+[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="1_sljc5"]
 [ext_resource type="Texture2D" uid="uid://3lbad4ppcyd2" path="res://textures/16x16_rect.png" id="2_t074g"]
 [ext_resource type="Script" path="res://scripts/RoomCamera.gd" id="3_d03bf"]
-[ext_resource type="PackedScene" uid="uid://xkyofka08ymv" path="res://scenes/Jellyfish.tscn" id="4_lpv60"]
+[ext_resource type="PackedScene" path="res://scenes/Jellyfish.tscn" id="4_lpv60"]
+[ext_resource type="PackedScene" uid="uid://bkfisdr5pbwdn" path="res://scenes/Pause Screen.tscn" id="5_soq51"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6eg3"]
 texture = ExtResource("2_t074g")
@@ -30,3 +31,7 @@ script = ExtResource("3_d03bf")
 
 [node name="Jellyfish" parent="." instance=ExtResource("4_lpv60")]
 position = Vector2(159, 369)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="UI" instance=ExtResource("5_soq51")]
