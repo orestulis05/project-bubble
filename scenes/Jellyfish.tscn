@@ -40,10 +40,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6nl7"]
-size = Vector2(63.5, 63.5)
+size = Vector2(63.5, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xnsc"]
-size = Vector2(75, 75)
+size = Vector2(75, 72)
 
 [node name="Jellyfish" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -56,16 +56,16 @@ position = Vector2(-9, 9.5)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_gtlco")
 autoplay = "default"
-frame_progress = 0.0495286
+frame_progress = 0.855312
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-8.75, 8.75)
+position = Vector2(-8.75, 12)
 shape = SubResource("RectangleShape2D_v6nl7")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-8.5, 9.5)
+position = Vector2(-8.5, 11)
 shape = SubResource("RectangleShape2D_2xnsc")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
