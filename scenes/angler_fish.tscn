@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcjs1my3xjc2h"]
+
+[ext_resource type="Script" path="res://angler_fish.gd" id="1_wwjfq"]
+[ext_resource type="Texture2D" uid="uid://dpc8eulqxwdvs" path="res://textures/angler fish/angler_normal.png" id="2_3j1po"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83ywm"]
+size = Vector2(24, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vofgc"]
+radius = 105.019
+
+[node name="Angler Fish" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_wwjfq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_83ywm")
+
+[node name="AnglerNormal" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("2_3j1po")
+
+[node name="Detection Zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Zone"]
+shape = SubResource("CircleShape2D_vofgc")

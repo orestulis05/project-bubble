@@ -1,0 +1,104 @@
+[gd_scene load_steps=13 format=4 uid="uid://sba8fvm7g6dy"]
+
+[ext_resource type="PackedScene" uid="uid://df4q0jnn83r3d" path="res://scenes/Player.tscn" id="1_0jjtx"]
+[ext_resource type="Texture2D" uid="uid://3lbad4ppcyd2" path="res://textures/16x16_rect.png" id="2_327mw"]
+[ext_resource type="Texture2D" uid="uid://bkdcm3y3pcpl6" path="res://textures/shiptileset.png" id="3_0vuqt"]
+[ext_resource type="Script" path="res://scripts/RoomCamera.gd" id="4_tygcb"]
+[ext_resource type="Texture2D" uid="uid://b706r7jmthy25" path="res://textures/ship background.png" id="5_5qsm7"]
+[ext_resource type="Shader" path="res://WaterShader.gdshader" id="6_eteyq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6eg3"]
+texture = ExtResource("2_327mw")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4sqgk"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_llt8m"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tsclp"]
+texture = ExtResource("3_0vuqt")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_4sqgk")
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_4sqgk")
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_4sqgk")
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+1:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_llt8m")
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_4sqgk")
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8p2xn"]
+tile_size = Vector2i(32, 32)
+occlusion_layer_0/light_mask = 1
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_m6eg3")
+sources/1 = SubResource("TileSetAtlasSource_tsclp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_45pga"]
+shader = ExtResource("6_eteyq")
+shader_parameter/wave_speed = 3.0
+shader_parameter/wave_freq = 10.0
+shader_parameter/wave_width = -0.35
+
+[node name="TestingMap" type="Node2D"]
+texture_filter = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.427871, 0.683144, 0.941015, 1)
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_0jjtx")]
+z_index = 5
+position = Vector2(295, -165)
+
+[node name="Base TileLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAPv/AQABAAAAAAABAPv/AQABAAAAAAACAPv/AQABAAAAAAADAPv/AQABAAAAAAAEAPv/AQABAAAAAAAFAPv/AQABAAAAAAAGAPv/AQABAAAAAAAHAPv/AQAAAAAAAFAIAPz/AQABAAAAAAAJAPz/AQABAAAAAAAKAPz/AQABAAAAAAAHAPz/AQACAAAAAFALAP3/AQACAAAAAFAMAP3/AQABAAAAAAANAP3/AQABAAAAAAAOAP3/AQABAAAAAAAPAP3/AQABAAAAAAAQAP3/AQABAAAAAAARAP3/AQABAAAAAAASAP3/AQABAAAAAAATAP3/AQABAAAAAAAUAP3/AQABAAAAAAAVAP3/AQABAAAAAAAWAP3/AQABAAAAAAAXAP3/AQABAAAAAAAYAP3/AQABAAAAAAAZAP3/AQABAAAAAAAaAP3/AQABAAAAAAAbAP3/AQABAAAAAAAbAP7/AQABAAEAAAAbAP//AQABAAEAAAAaAP//AQABAAEAAAAZAP//AQABAAEAAAAYAP//AQABAAEAAAAXAP//AQABAAEAAAAWAP//AQABAAEAAAAVAP//AQABAAEAAAAUAP//AQABAAEAAAATAP//AQABAAEAAAASAP//AQABAAEAAAARAP//AQABAAEAAAAQAP//AQABAAEAAAAPAP//AQABAAEAAAAOAP//AQABAAEAAAANAP//AQABAAEAAAAMAP//AQABAAEAAAALAP//AQABAAEAAAAKAP//AQABAAEAAAAJAP//AQABAAEAAAAIAP//AQABAAEAAAAHAP//AQABAAEAAAAGAP//AQABAAEAAAAFAP//AQABAAEAAAAEAP//AQABAAEAAAADAP//AQABAAEAAAACAP//AQABAAEAAAABAP//AQABAAEAAAAAAP//AQABAAEAAAAAAP7/AQABAAEAAAAAAP3/AQABAAEAAAAAAPz/AQABAAEAAAAFAPz/AQABAAEAAAAEAPz/AQABAAEAAAADAPz/AQABAAEAAAACAPz/AQABAAEAAAABAPz/AQABAAEAAAABAP3/AQABAAEAAAABAP7/AQABAAEAAAACAP7/AQABAAEAAAACAP3/AQABAAEAAAADAP3/AQABAAEAAAADAP7/AQABAAEAAAAEAP7/AQABAAEAAAAEAP3/AQABAAEAAAAFAP3/AQABAAEAAAAFAP7/AQABAAEAAAAGAP7/AQABAAEAAAAGAP3/AQABAAEAAAAGAPz/AQABAAEAAAAHAP3/AQABAAEAAAAHAP7/AQABAAEAAAAIAP7/AQABAAEAAAAIAP3/AQABAAEAAAAJAP3/AQABAAEAAAAJAP7/AQABAAEAAAAKAP7/AQABAAEAAAAKAP3/AQABAAEAAAALAP7/AQABAAEAAAAMAP7/AQABAAEAAAANAP7/AQABAAEAAAAOAP7/AQABAAEAAAAPAP7/AQABAAEAAAAQAP7/AQABAAEAAAARAP7/AQABAAEAAAASAP7/AQABAAEAAAATAP7/AQABAAEAAAAUAP7/AQABAAEAAAAVAP7/AQABAAEAAAAWAP7/AQABAAEAAAAXAP7/AQABAAEAAAAYAP7/AQABAAEAAAAZAP7/AQABAAEAAAAaAP7/AQABAAEAAAALAPz/AQAAAAAAAFA=")
+tile_set = SubResource("TileSet_8p2xn")
+
+[node name="Room Cam" type="Camera2D" parent="."]
+position = Vector2(352, -240)
+script = ExtResource("4_tygcb")
+
+[node name="ShipBackground" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(447.5, -320)
+scale = Vector2(1.81579, 3.01887)
+texture = ExtResource("5_5qsm7")
+
+[node name="FX" type="CanvasLayer" parent="."]
+layer = 35
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="FX"]
+material = SubResource("ShaderMaterial_45pga")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
