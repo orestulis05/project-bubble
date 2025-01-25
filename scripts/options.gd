@@ -1,8 +1,5 @@
 extends Control
 
-
-
-
 func _on_check_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
@@ -18,4 +15,4 @@ func _on_v_sync_2_toggled(toggled_on: bool) -> void:
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://MainMenu.tscn")
+	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")

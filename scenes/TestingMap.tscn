@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=4 uid="uid://ofc4w6qbybja"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_551dw"]
-[ext_resource type="Texture2D" uid="uid://3lbad4ppcyd2" path="res://16x16_rect.png" id="1_i0gj7"]
-[ext_resource type="Script" path="res://pause.gd" id="3_hxt36"]
-[ext_resource type="Script" path="res://RoomCamera.gd" id="3_ocrle"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_jpoeo"]
+[ext_resource type="Texture2D" uid="uid://3lbad4ppcyd2" path="res://textures/16x16_rect.png" id="2_6frku"]
+[ext_resource type="Script" path="res://scripts/RoomCamera.gd" id="3_w6ss1"]
+[ext_resource type="Script" path="res://scripts/pause.gd" id="4_wxmsw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqphe"]
 size = Vector2(16, 16)
@@ -12,7 +12,7 @@ size = Vector2(16, 16)
 size = Vector2(56, 12)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c1l73"]
-texture = ExtResource("1_i0gj7")
+texture = ExtResource("2_6frku")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
@@ -25,13 +25,13 @@ sources/0 = SubResource("TileSetAtlasSource_c1l73")
 [node name="Player" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(5, 5)
-script = ExtResource("1_551dw")
+script = ExtResource("1_jpoeo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_vqphe")
 
 [node name="Rect" type="Sprite2D" parent="Player"]
-texture = ExtResource("1_i0gj7")
+texture = ExtResource("2_6frku")
 
 [node name="Shooting Area Pivot" type="Node2D" parent="Player"]
 
@@ -50,13 +50,13 @@ tile_set = SubResource("TileSet_myw50")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(480, -272)
-script = ExtResource("3_ocrle")
+script = ExtResource("3_w6ss1")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Pause" type="Node" parent="UI"]
 process_mode = 3
-script = ExtResource("3_hxt36")
+script = ExtResource("4_wxmsw")
 
 [node name="PausePanel" type="Panel" parent="UI/Pause"]
 unique_name_in_owner = true
