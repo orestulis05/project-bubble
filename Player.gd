@@ -68,6 +68,7 @@ func _calculated_player_scale() -> Vector2:
 	var result = initial_scale * scaleMult
 	return result
 
+
 func _calculated_shooting_angle(input : Vector2) -> float:
 	var dot : float
 	var cosine : float
