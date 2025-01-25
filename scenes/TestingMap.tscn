@@ -1,6 +1,5 @@
 [gd_scene load_steps=11 format=4 uid="uid://ofc4w6qbybja"]
 
-[ext_resource type="Script" path="res://scripts/Player.gd" id="1_jpoeo"]
 [ext_resource type="PackedScene" uid="uid://df4q0jnn83r3d" path="res://scenes/Player.tscn" id="1_ivujm"]
 [ext_resource type="Texture2D" uid="uid://3lbad4ppcyd2" path="res://textures/16x16_rect.png" id="2_6frku"]
 [ext_resource type="Script" path="res://scripts/RoomCamera.gd" id="3_w6ss1"]
