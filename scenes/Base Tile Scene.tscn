@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bs1preyaej81e"]
+[gd_scene load_steps=12 format=3 uid="uid://bs1preyaej81e"]
 
 [ext_resource type="Texture2D" uid="uid://3lbad4ppcyd2" path="res://textures/16x16_rect.png" id="1_7r422"]
 [ext_resource type="Texture2D" uid="uid://bkdcm3y3pcpl6" path="res://textures/shiptileset.png" id="2_1w2jg"]
 [ext_resource type="PackedScene" uid="uid://cvhudtlceyxml" path="res://scenes/spike.tscn" id="3_0062j"]
+[ext_resource type="Texture2D" uid="uid://dxgmkibvg820h" path="res://textures/chapter 3/sharkcavetileset.png" id="4_ydswt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6eg3"]
 texture = ExtResource("1_7r422")
@@ -54,6 +55,21 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_c5cgo"]
 scenes/1/scene = ExtResource("3_0062j")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4rx4b"]
+texture = ExtResource("4_ydswt")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
 [sub_resource type="TileSet" id="TileSet_8p2xn"]
 tile_size = Vector2i(32, 32)
 occlusion_layer_0/light_mask = 1
@@ -61,6 +77,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_m6eg3")
 sources/1 = SubResource("TileSetAtlasSource_tsclp")
 sources/2 = SubResource("TileSetScenesCollectionSource_c5cgo")
+sources/3 = SubResource("TileSetAtlasSource_4rx4b")
 
 [node name="Base TileLayer" type="TileMapLayer"]
 texture_filter = 1

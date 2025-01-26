@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blojubhtm0mji"
+path="res://.godot/imported/ground hit.mp3-ba7d87f841029b274af13ebb15223b0d.mp3str"
+
+[deps]
+
+source_file="res://sfx/ground hit.mp3"
+dest_files=["res://.godot/imported/ground hit.mp3-ba7d87f841029b274af13ebb15223b0d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

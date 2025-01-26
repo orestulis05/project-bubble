@@ -3,6 +3,7 @@ extends CharacterBody2D
 const RESPAWN_TIME = 1.0
 
 var movement = true
+var dying : bool = false
 
 @onready var shooting_area_pivot: Node2D = $"Shooting Area Pivot"
 @onready var shooting_area: Area2D = $"Shooting Area Pivot/Shooting Area"
@@ -160,11 +161,24 @@ func _calculated_shooting_angle(input : Vector2) -> float:
 	return degrees
 	
 func die():
+	if !dying:
+		movement = false
+		dying = true
+		Globals.play_sound_random_pitch($SFX/Death_SFX, 0.8, 1.2)
+		$Bubble_Explosion_Fx.emitting = true
+		$animated_sprite.hide()
+		$legs.hide()
+		$"%bubbles".hide()
+		await get_tree().create_timer(RESPAWN_TIME).timeout
+		Globals.continue_game()
+		
+func end():
 	movement = false
+	dying = true
 	Globals.play_sound_random_pitch($SFX/Death_SFX, 0.8, 1.2)
 	$Bubble_Explosion_Fx.emitting = true
 	$animated_sprite.hide()
 	$legs.hide()
 	$"%bubbles".hide()
 	await get_tree().create_timer(RESPAWN_TIME).timeout
-	Globals.continue_game()
+	get_tree().quit()

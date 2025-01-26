@@ -85,7 +85,7 @@ texture = ExtResource("2_3j1po")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Zone"]
-scale = Vector2(4.55707, 4.55707)
+scale = Vector2(4.09974, 4.09974)
 shape = SubResource("CircleShape2D_vofgc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
