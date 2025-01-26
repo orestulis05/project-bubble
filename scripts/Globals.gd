@@ -33,3 +33,8 @@ func continue_game():
 				print("Loaded to ", current_checkpoint)
 	 
 	player.global_position = spawn_pos
+	
+func play_sound_random_pitch(player : AudioStreamPlayer, min, max):
+	var pitch = randf_range(min, max)
+	player.pitch_scale = pitch
+	player.play()

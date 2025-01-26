@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b15k7810nprib"]
+[gd_scene load_steps=33 format=3 uid="uid://b15k7810nprib"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_6lfdg"]
 [ext_resource type="Texture2D" uid="uid://bf6kkwrq7nxn7" path="res://textures/bubble_blowing_base.png" id="2_yvauq"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cqsu24xica7lk" path="res://textures/bubble_limbs_base.png" id="6_uchln"]
 [ext_resource type="Texture2D" uid="uid://chn6v3yahport" path="res://textures/small_bubbles.png" id="7_vafhv"]
 [ext_resource type="PackedScene" uid="uid://dk8354i25f8cy" path="res://scenes/fx/bubble_explosion_fx.tscn" id="8_fwic2"]
+[ext_resource type="AudioStream" uid="uid://dndxl42cbhfe6" path="res://sfx/explosion.ogg" id="9_i3kk7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqphe"]
 size = Vector2(16, 16)
@@ -222,3 +223,8 @@ process_material = SubResource("ParticleProcessMaterial_276mu")
 texture = ExtResource("7_vafhv")
 speed_scale = 1.5
 local_coords = true
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Death_SFX" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("9_i3kk7")
