@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://df4q0jnn83r3d"]
+[gd_scene load_steps=32 format=3 uid="uid://b15k7810nprib"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_6lfdg"]
 [ext_resource type="Texture2D" uid="uid://bf6kkwrq7nxn7" path="res://textures/bubble_blowing_base.png" id="2_yvauq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dboxd84on4gf6" path="res://textures/bubble_run_placehold.png" id="5_q3khk"]
 [ext_resource type="Texture2D" uid="uid://cqsu24xica7lk" path="res://textures/bubble_limbs_base.png" id="6_uchln"]
 [ext_resource type="Texture2D" uid="uid://chn6v3yahport" path="res://textures/small_bubbles.png" id="7_vafhv"]
+[ext_resource type="PackedScene" uid="uid://dk8354i25f8cy" path="res://scenes/fx/bubble_explosion_fx.tscn" id="8_fwic2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqphe"]
 size = Vector2(16, 16)
@@ -179,6 +180,9 @@ scale = Vector2(3, 3)
 collision_layer = 3
 script = ExtResource("1_6lfdg")
 
+[node name="Bubble_Explosion_Fx" parent="." instance=ExtResource("8_fwic2")]
+position = Vector2(0.666667, 0)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vqphe")
 
@@ -212,6 +216,7 @@ shape = SubResource("RectangleShape2D_aftbe")
 [node name="bubbles" type="GPUParticles2D" parent="Shooting Area Pivot"]
 unique_name_in_owner = true
 texture_filter = 1
+emitting = false
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_276mu")
 texture = ExtResource("7_vafhv")

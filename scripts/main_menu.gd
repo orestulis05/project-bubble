@@ -9,7 +9,7 @@ func _on_new_game_pressed() -> void:
 	save.last_scene_path = "res://scenes/TestingMap.tscn"
 	save.last_checkpoint_id = 0
 	ResourceSaver.save(save, Globals.SAVE_FILE_PATH)
-	get_tree().change_scene_to_file("res://scenes/TestingMap.tscn")
+	Globals.continue_game()
 
 
 func _on_exit_pressed() -> void:

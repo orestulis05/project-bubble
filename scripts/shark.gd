@@ -59,4 +59,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_kill_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		Globals.continue_game()
+		body.die()
