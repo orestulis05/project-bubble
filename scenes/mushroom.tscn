@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b47wql5p6gfx5"]
+[gd_scene load_steps=3 format=3 uid="uid://b47wql5p6gfx5"]
+
+[ext_resource type="Texture2D" uid="uid://dr7scino3a3pb" path="res://textures/mushroom2.png" id="1_82c85"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t61fm"]
 
@@ -7,3 +9,7 @@ position = Vector2(1735, 641)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_t61fm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_82c85")

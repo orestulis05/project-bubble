@@ -1,18 +1,16 @@
-[gd_scene load_steps=7 format=4 uid="uid://cjedjlmvn634j"]
+[gd_scene load_steps=6 format=4 uid="uid://cjedjlmvn634j"]
 
-[ext_resource type="PackedScene" uid="uid://df4q0jnn83r3d" path="res://scenes/Player.tscn" id="1_gkcqw"]
+[ext_resource type="PackedScene" uid="uid://b15k7810nprib" path="res://scenes/Player.tscn" id="1_gkcqw"]
 [ext_resource type="Script" path="res://scripts/RoomCamera.gd" id="2_pcyb5"]
 [ext_resource type="PackedScene" uid="uid://bs1preyaej81e" path="res://scenes/Base Tile Scene.tscn" id="3_bb7vt"]
 [ext_resource type="PackedScene" uid="uid://bkfisdr5pbwdn" path="res://scenes/Pause Screen.tscn" id="4_omwin"]
-[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="5_ss1o7"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n1wl6"]
+[ext_resource type="PackedScene" uid="uid://lvekqcy7pfa2" path="res://scenes/checkpoint.tscn" id="5_io8gh"]
 
 [node name="Chapter2" type="Node2D"]
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_gkcqw")]
 unique_name_in_owner = true
-position = Vector2(77, 238)
+position = Vector2(76, 383)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(352, -240)
@@ -25,10 +23,6 @@ tile_map_data = PackedByteArray("AAAAAAAAAQABAAAAAAAAAAEAAQABAAAAAAAAAAIAAQABAAA
 
 [node name="Pause" parent="UI" instance=ExtResource("4_omwin")]
 
-[node name="Checkpoint6" type="Area2D" parent="." groups=["Checkpoint"]]
-position = Vector2(76, 430)
-script = ExtResource("5_ss1o7")
+[node name="Checkpoint" parent="." instance=ExtResource("5_io8gh")]
+position = Vector2(76, 428)
 checkpoint_id = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint6"]
-shape = SubResource("CapsuleShape2D_n1wl6")
