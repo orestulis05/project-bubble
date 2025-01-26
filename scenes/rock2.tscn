@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c47dvnkmb3e3b"]
+
+[ext_resource type="Texture2D" uid="uid://tntyg88vt3kb" path="res://textures/rock4.png" id="1_53aeg"]
+
+[node name="Rock3" type="Node2D"]
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+texture = ExtResource("1_53aeg")

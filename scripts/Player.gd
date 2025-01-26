@@ -182,3 +182,11 @@ func end():
 	$"%bubbles".hide()
 	await get_tree().create_timer(RESPAWN_TIME).timeout
 	get_tree().quit()
+
+	Globals.continue_game()
+
+
+func _on_mushroom_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		get_tree().change_scene_to_file("res://scenes/Chapter3.tscn")
+
