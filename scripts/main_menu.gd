@@ -6,7 +6,7 @@ func _ready() -> void:
 
 func _on_new_game_pressed() -> void:
 	var save := SaveFile.new()
-	save.last_scene_path = "res://scenes/TestingMap.tscn"
+	save.last_scene_path = "res://scenes/tutorial.tscn"
 	save.last_checkpoint_id = 0
 	ResourceSaver.save(save, Globals.SAVE_FILE_PATH)
 	Globals.continue_game()

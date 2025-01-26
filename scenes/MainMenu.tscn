@@ -73,21 +73,26 @@ grow_vertical = 2
 script = ExtResource("1_h3u52")
 
 [node name="Titlescreenbc" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(352, 239)
 texture = ExtResource("2_67pbb")
 
 [node name="Title" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(378, 106)
 scale = Vector2(0.802405, 0.802405)
 texture = ExtResource("3_w1hy8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(553, 338)
 scale = Vector2(0.868421, 0.868421)
 sprite_frames = SubResource("SpriteFrames_37bf7")
+autoplay = "default"
 frame_progress = 0.128454
 
 [node name="Options" type="TextureButton" parent="."]
+texture_filter = 1
 layout_mode = 2
 offset_top = 264.0
 offset_right = 208.0
@@ -101,6 +106,7 @@ texture_disabled = ExtResource("5_3anfa")
 texture_focused = ExtResource("6_6r5ol")
 
 [node name="Exit" type="TextureButton" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -116,6 +122,7 @@ texture_disabled = ExtResource("6_sd2a3")
 texture_focused = ExtResource("8_a6tyc")
 
 [node name="NewGame" type="TextureButton" parent="."]
+texture_filter = 1
 layout_mode = 2
 offset_left = 208.0
 offset_top = 264.0
@@ -130,6 +137,7 @@ texture_disabled = ExtResource("7_lm3ie")
 texture_focused = ExtResource("10_ewa3b")
 
 [node name="Continue" type="TextureButton" parent="."]
+texture_filter = 1
 layout_mode = 2
 offset_left = 208.0
 offset_top = 372.0

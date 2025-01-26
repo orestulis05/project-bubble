@@ -21,6 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Gameispaused" type="Sprite2D" parent="PausePanel"]
+texture_filter = 1
 position = Vector2(342, 47)
 texture = ExtResource("2_oiqm4")
 
@@ -40,6 +41,7 @@ grow_vertical = 2
 
 [node name="Button" type="TextureButton" parent="PausePanel/VBoxContainer"]
 process_mode = 3
+texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("3_onrkh")
 texture_pressed = ExtResource("3_onrkh")
@@ -49,6 +51,7 @@ texture_focused = ExtResource("4_y86jx")
 
 [node name="Button2" type="TextureButton" parent="PausePanel/VBoxContainer"]
 process_mode = 3
+texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("5_vube6")
 texture_pressed = ExtResource("5_vube6")
