@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://bssdkvs6jv5b7"]
+[gd_scene load_steps=8 format=4 uid="uid://dpdtognnow7u2"]
 
 [ext_resource type="Texture2D" uid="uid://b706r7jmthy25" path="res://textures/main_menu/ship background.png" id="1_77s8g"]
-[ext_resource type="PackedScene" uid="uid://df4q0jnn83r3d" path="res://scenes/Player.tscn" id="1_g4dfn"]
-[ext_resource type="PackedScene" uid="uid://bs1preyaej81e" path="res://scenes/Base Tile Scene.tscn" id="2_5b5mg"]
+[ext_resource type="PackedScene" uid="uid://b15k7810nprib" path="res://scenes/Player.tscn" id="1_g4dfn"]
+[ext_resource type="PackedScene" path="res://scenes/Base Tile Scene.tscn" id="2_5b5mg"]
 [ext_resource type="Script" path="res://scripts/RoomCamera.gd" id="3_85qb4"]
 [ext_resource type="PackedScene" uid="uid://bkfisdr5pbwdn" path="res://scenes/Pause Screen.tscn" id="4_r8pui"]
 [ext_resource type="Script" path="res://scripts/checkpoint.gd" id="5_117jo"]

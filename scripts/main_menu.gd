@@ -3,6 +3,10 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$NewGame.grab_focus()
+	
+	var save : SaveFile = ResourceLoader.load(Globals.SAVE_FILE_PATH)
+	if !save:
+		$Continue.visible = false
 
 func _on_new_game_pressed() -> void:
 	var save := SaveFile.new()

@@ -148,7 +148,6 @@ focus_neighbor_bottom = NodePath("../Options")
 texture_normal = ExtResource("8_klcl7")
 texture_pressed = ExtResource("8_klcl7")
 texture_hover = ExtResource("12_8lppp")
-texture_disabled = ExtResource("8_klcl7")
 texture_focused = ExtResource("12_8lppp")
 
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
