@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+const RESPAWN_TIME = 1.0
+
+var movement = true
+
 @onready var shooting_area_pivot: Node2D = $"Shooting Area Pivot"
 @onready var shooting_area: Area2D = $"Shooting Area Pivot/Shooting Area"
 @onready var shooting_collider: CollisionShape2D = $"Shooting Area Pivot/Shooting Area/CollisionShape2D"
@@ -8,6 +12,8 @@ extends CharacterBody2D
 @onready var bubble_quantity : float = max_bubble_quantity
 @onready var initial_scale : Vector2 = scale
 @export var bubble_decrease_rate : float = 0.3
+var dynamic_color : Color = Color.WHITE
+
 @onready var animated_sprite: AnimatedSprite2D = %animated_sprite
 @onready var legs: Sprite2D = %legs
 @onready var bubbles: GPUParticles2D = %bubbles
@@ -24,25 +30,32 @@ func _ready() -> void:
 	bubbles.emitting = false
 
 func _process(delta: float) -> void:
+	
+	# Color change
+	var gb : float = bubble_quantity / max_bubble_quantity
+	dynamic_color.g = gb
+	dynamic_color.b = gb
+	$animated_sprite.modulate = dynamic_color
+	$legs.modulate = dynamic_color
+
 	if Input.is_action_just_pressed("reload"):
-		Globals.continue_game()
+		die()
 
 func _physics_process(delta: float) -> void:
-	_movement()
-	_shooting()
 	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	if movement:
+		_movement()
+		_shooting()
 	
-	# Change color
-	if bubble_quantity <= 70:
-		$animated_sprite.modulate = Color.RED
-		$legs.modulate = Color.RED
+		# Add the gravity.
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+		
 	if bubble_quantity <= 40:
-		Globals.continue_game()
+		die()
 	
-	move_and_slide()
+	if movement:
+		move_and_slide()
 	
 func _movement():
 	if is_shooting:
@@ -145,3 +158,12 @@ func _calculated_shooting_angle(input : Vector2) -> float:
 		degrees = 225
 	
 	return degrees
+	
+func die():
+	movement = false
+	$Bubble_Explosion_Fx.emitting = true
+	$animated_sprite.hide()
+	$legs.hide()
+	$"%bubbles".hide()
+	await get_tree().create_timer(RESPAWN_TIME).timeout
+	Globals.continue_game()

@@ -8,7 +8,12 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	print("If ", Globals.current_checkpoint, " < ", checkpoint_id)
+	body.bubble_quantity = body.max_bubble_quantity
+	body.scale = body.calculated_player_scale()
+	
+	
 	if Globals.current_checkpoint < checkpoint_id:
 		Globals.save_game(get_tree().current_scene.scene_file_path, checkpoint_id)
 		print("Checkpoint ", checkpoint_id)
 		Globals.current_checkpoint = checkpoint_id
+	

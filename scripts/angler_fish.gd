@@ -32,4 +32,4 @@ func _on_detection_zone_body_entered(body: Node2D) -> void:
 func _on_kill_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		print("BAAAM")
-		Globals.continue_game()
+		body.die()
