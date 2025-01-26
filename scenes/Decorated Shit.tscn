@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=4 uid="uid://sba8fvm7g6dy"]
 
-[ext_resource type="PackedScene" uid="uid://df4q0jnn83r3d" path="res://scenes/Player.tscn" id="1_0jjtx"]
+[ext_resource type="PackedScene" uid="uid://b15k7810nprib" path="res://scenes/Player.tscn" id="1_0jjtx"]
 [ext_resource type="Texture2D" uid="uid://3lbad4ppcyd2" path="res://textures/16x16_rect.png" id="2_327mw"]
 [ext_resource type="Texture2D" uid="uid://bkdcm3y3pcpl6" path="res://textures/shiptileset.png" id="3_0vuqt"]
 [ext_resource type="Script" path="res://scripts/RoomCamera.gd" id="4_tygcb"]
-[ext_resource type="Texture2D" uid="uid://b706r7jmthy25" path="res://textures/ship background.png" id="5_5qsm7"]
+[ext_resource type="Texture2D" uid="uid://b706r7jmthy25" path="res://textures/main_menu/ship background.png" id="5_5qsm7"]
 [ext_resource type="Shader" path="res://WaterShader.gdshader" id="6_eteyq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6eg3"]
