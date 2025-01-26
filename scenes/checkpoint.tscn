@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://lvekqcy7pfa2"]
+
+[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="1_ukxtg"]
+[ext_resource type="Texture2D" uid="uid://c5jrno7j1qjxu" path="res://textures/shipsave.png" id="2_lojyx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrqxh"]
+
+[node name="Checkpoint" type="Area2D" groups=["Checkpoint"]]
+position = Vector2(57, 141)
+script = ExtResource("1_ukxtg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xrqxh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 1)
+texture = ExtResource("2_lojyx")

@@ -1,16 +1,17 @@
-[gd_scene load_steps=11 format=4 uid="uid://dpdtognnow7u2"]
+[gd_scene load_steps=13 format=4 uid="uid://dpdtognnow7u2"]
 
 [ext_resource type="Texture2D" uid="uid://b706r7jmthy25" path="res://textures/main_menu/ship background.png" id="1_77s8g"]
 [ext_resource type="PackedScene" uid="uid://b15k7810nprib" path="res://scenes/Player.tscn" id="1_g4dfn"]
 [ext_resource type="Script" path="res://scenes/tutorial.gd" id="1_lqwcn"]
-[ext_resource type="PackedScene" path="res://scenes/Base Tile Scene.tscn" id="2_5b5mg"]
+[ext_resource type="PackedScene" uid="uid://bs1preyaej81e" path="res://scenes/Base Tile Scene.tscn" id="2_5b5mg"]
 [ext_resource type="Script" path="res://scripts/RoomCamera.gd" id="3_85qb4"]
 [ext_resource type="PackedScene" uid="uid://bkfisdr5pbwdn" path="res://scenes/Pause Screen.tscn" id="4_r8pui"]
-[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="5_117jo"]
-[ext_resource type="PackedScene" path="res://scenes/mushroom.tscn" id="7_jtj88"]
+[ext_resource type="PackedScene" uid="uid://b47wql5p6gfx5" path="res://scenes/mushroom.tscn" id="7_jtj88"]
+[ext_resource type="PackedScene" uid="uid://rtqhfm0wft4a" path="res://scenes/chest.tscn" id="7_n21dy"]
+[ext_resource type="PackedScene" uid="uid://lvekqcy7pfa2" path="res://scenes/checkpoint.tscn" id="7_yqxcf"]
+[ext_resource type="PackedScene" uid="uid://dejx2wa6cle18" path="res://scenes/table.tscn" id="8_g5g7j"]
 [ext_resource type="Texture2D" uid="uid://cc2h2ipot76l6" path="res://textures/tilemap.png" id="9_k8k63"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrqxh"]
+[ext_resource type="PackedScene" uid="uid://dj61psdimeuue" path="res://scenes/barrel.tscn" id="12_1q3ps"]
 
 [node name="Tutorial" type="Node2D"]
 position = Vector2(352, -240)
@@ -18,7 +19,7 @@ script = ExtResource("1_lqwcn")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_g4dfn")]
 unique_name_in_owner = true
-position = Vector2(-295, 372)
+position = Vector2(-296, 377)
 
 [node name="ShipBackground" type="Sprite2D" parent="."]
 modulate = Color(0.564962, 0.564962, 0.564962, 1)
@@ -58,46 +59,52 @@ script = ExtResource("3_85qb4")
 
 [node name="Pause" parent="UI" instance=ExtResource("4_r8pui")]
 
+[node name="objects" type="Node" parent="."]
+
+[node name="Chest" parent="objects" instance=ExtResource("7_n21dy")]
+position = Vector2(467, 264)
+
+[node name="Chest5" parent="objects" instance=ExtResource("7_n21dy")]
+position = Vector2(1103, 104)
+
+[node name="Table2" parent="objects" instance=ExtResource("8_g5g7j")]
+position = Vector2(1160, 424)
+
+[node name="Table" parent="objects" instance=ExtResource("8_g5g7j")]
+position = Vector2(202, 265)
+
+[node name="Chest6" parent="objects" instance=ExtResource("7_n21dy")]
+position = Vector2(1215, 264)
+
+[node name="Table3" parent="objects" instance=ExtResource("8_g5g7j")]
+position = Vector2(1549, 104)
+
+[node name="Barrel2" parent="objects" instance=ExtResource("12_1q3ps")]
+position = Vector2(1841, 105)
+
+[node name="Barrel" parent="objects" instance=ExtResource("12_1q3ps")]
+position = Vector2(810, 425)
+
 [node name="Checkpoints" type="Node" parent="."]
 
-[node name="Checkpoint" type="Area2D" parent="Checkpoints" groups=["Checkpoint"]]
-position = Vector2(57, 141)
-script = ExtResource("5_117jo")
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("7_yqxcf")]
+position = Vector2(57, 144)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint"]
-shape = SubResource("CapsuleShape2D_xrqxh")
-
-[node name="Checkpoint2" type="Area2D" parent="Checkpoints" groups=["Checkpoint"]]
-position = Vector2(744, 431)
-script = ExtResource("5_117jo")
+[node name="Checkpoint6" parent="Checkpoints" instance=ExtResource("7_yqxcf")]
+position = Vector2(742, 436)
 checkpoint_id = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint2"]
-shape = SubResource("CapsuleShape2D_xrqxh")
-
-[node name="Checkpoint3" type="Area2D" parent="Checkpoints" groups=["Checkpoint"]]
-position = Vector2(1295, 112)
-script = ExtResource("5_117jo")
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("7_yqxcf")]
+position = Vector2(1298, 112)
 checkpoint_id = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint3"]
-shape = SubResource("CapsuleShape2D_xrqxh")
-
-[node name="Checkpoint4" type="Area2D" parent="Checkpoints" groups=["Checkpoint"]]
-position = Vector2(2037, 112)
-script = ExtResource("5_117jo")
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("7_yqxcf")]
+position = Vector2(2033, 112)
 checkpoint_id = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint4"]
-shape = SubResource("CapsuleShape2D_xrqxh")
-
-[node name="Checkpoint5" type="Area2D" parent="Checkpoints" groups=["Checkpoint"]]
-position = Vector2(1806, 400)
-script = ExtResource("5_117jo")
+[node name="Checkpoint4" parent="Checkpoints" instance=ExtResource("7_yqxcf")]
+position = Vector2(1807, 400)
 checkpoint_id = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint5"]
-shape = SubResource("CapsuleShape2D_xrqxh")
 
 [node name="Mushroom" parent="." instance=ExtResource("7_jtj88")]
 position = Vector2(1732, 640)
@@ -230,7 +237,7 @@ position = Vector2(944, 48)
 scale = Vector2(2, 2)
 texture = ExtResource("9_k8k63")
 region_enabled = true
-region_rect = Rect2(256, 341, 13, 13)
+region_rect = Rect2(35, 341, 14, 14)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Control prompts"]
 texture_filter = 1
