@@ -161,6 +161,7 @@ func _calculated_shooting_angle(input : Vector2) -> float:
 	
 func die():
 	movement = false
+	Globals.play_sound_random_pitch($SFX/Death_SFX, 0.8, 1.2)
 	$Bubble_Explosion_Fx.emitting = true
 	$animated_sprite.hide()
 	$legs.hide()
