@@ -13,8 +13,8 @@ func _on_body_entered(body: Node2D) -> void:
 		body.scale = body.calculated_player_scale()
 	
 	
-	if Globals.current_checkpoint < checkpoint_id:
-		Globals.save_game(get_tree().current_scene.scene_file_path, checkpoint_id)
-		print("Checkpoint ", checkpoint_id)
-		Globals.current_checkpoint = checkpoint_id
+		if Globals.current_checkpoint < checkpoint_id:
+			Globals.save_game(get_tree().current_scene.scene_file_path, checkpoint_id)
+			print("Checkpoint ", checkpoint_id)
+			Globals.current_checkpoint = checkpoint_id
 	
