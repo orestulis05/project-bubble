@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b47wql5p6gfx5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t61fm"]
+
+[node name="Mushroom" type="Area2D"]
+position = Vector2(1735, 641)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_t61fm")
