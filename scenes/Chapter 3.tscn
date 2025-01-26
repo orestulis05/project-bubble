@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cajjhybd6tump"]
+[gd_scene load_steps=24 format=4 uid="uid://dnqi2c5kg86df"]
 
 [ext_resource type="PackedScene" uid="uid://b15k7810nprib" path="res://scenes/Player.tscn" id="1_ny4vj"]
 [ext_resource type="Script" path="res://scripts/RoomCamera.gd" id="3_o2meb"]
@@ -317,6 +317,7 @@ texture = ExtResource("8_2wx55")
 position = Vector2(201, -331)
 collision_mask = 2
 script = ExtResource("8_2byl1")
+checkpoint_id = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint"]
 position = Vector2(5, -18.5)
@@ -326,7 +327,7 @@ shape = SubResource("RectangleShape2D_fur0s")
 position = Vector2(-165, -55)
 collision_mask = 2
 script = ExtResource("8_2byl1")
-checkpoint_id = 1
+checkpoint_id = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint2"]
 position = Vector2(5, -24)
@@ -336,7 +337,7 @@ shape = SubResource("RectangleShape2D_noiqu")
 position = Vector2(-918, 401)
 collision_mask = 2
 script = ExtResource("8_2byl1")
-checkpoint_id = 2
+checkpoint_id = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint3"]
 position = Vector2(5, -32)
@@ -346,7 +347,7 @@ shape = SubResource("RectangleShape2D_m8le8")
 position = Vector2(-1606, -526)
 collision_mask = 2
 script = ExtResource("8_2byl1")
-checkpoint_id = 3
+checkpoint_id = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint4"]
 position = Vector2(5, -143)
@@ -356,7 +357,7 @@ shape = SubResource("RectangleShape2D_vswyg")
 position = Vector2(-2889, 398)
 collision_mask = 2
 script = ExtResource("8_2byl1")
-checkpoint_id = 4
+checkpoint_id = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint5"]
 position = Vector2(5, -143)
@@ -599,7 +600,7 @@ position = Vector2(352, -240)
 script = ExtResource("3_o2meb")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_ny4vj")]
-position = Vector2(-1598, -579)
+position = Vector2(206, -348)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
