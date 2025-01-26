@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkfisdr5pbwdn"]
+[gd_scene load_steps=7 format=3 uid="uid://bkfisdr5pbwdn"]
 
 [ext_resource type="Script" path="res://scripts/pause.gd" id="1_irqd4"]
+[ext_resource type="Texture2D" uid="uid://uxt2xtusms6r" path="res://textures/main_menu/gameispaused.png" id="2_oiqm4"]
+[ext_resource type="Texture2D" uid="uid://bpsexx3g5pic5" path="res://textures/main_menu/resume.png" id="3_onrkh"]
+[ext_resource type="Texture2D" uid="uid://c6jigiyo317ft" path="res://textures/main_menu/resume-export.png" id="4_y86jx"]
+[ext_resource type="Texture2D" uid="uid://bul1te28a8ohi" path="res://textures/main_menu/exittomainmenu.png" id="5_vube6"]
+[ext_resource type="Texture2D" uid="uid://byhecvbhs0t4p" path="res://textures/main_menu/exittomainmenu-export.png" id="6_32pdv"]
 
 [node name="Pause" type="Node"]
 process_mode = 3
@@ -15,17 +20,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="PausePanel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 45
-text = "Game Paused"
+[node name="Gameispaused" type="Sprite2D" parent="PausePanel"]
+position = Vector2(342, 47)
+texture = ExtResource("2_oiqm4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PausePanel"]
 layout_mode = 1
@@ -41,17 +38,23 @@ offset_bottom = 63.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="PausePanel/VBoxContainer"]
+[node name="Button" type="TextureButton" parent="PausePanel/VBoxContainer"]
 process_mode = 3
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Resume Game"
+texture_normal = ExtResource("3_onrkh")
+texture_pressed = ExtResource("3_onrkh")
+texture_hover = ExtResource("4_y86jx")
+texture_disabled = ExtResource("3_onrkh")
+texture_focused = ExtResource("4_y86jx")
 
-[node name="Button2" type="Button" parent="PausePanel/VBoxContainer"]
+[node name="Button2" type="TextureButton" parent="PausePanel/VBoxContainer"]
 process_mode = 3
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Main Menu"
+texture_normal = ExtResource("5_vube6")
+texture_pressed = ExtResource("5_vube6")
+texture_hover = ExtResource("6_32pdv")
+texture_disabled = ExtResource("5_vube6")
+texture_focused = ExtResource("6_32pdv")
 
 [connection signal="pressed" from="PausePanel/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="PausePanel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

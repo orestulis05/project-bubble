@@ -212,6 +212,7 @@ shape = SubResource("RectangleShape2D_aftbe")
 [node name="bubbles" type="GPUParticles2D" parent="Shooting Area Pivot"]
 unique_name_in_owner = true
 texture_filter = 1
+emitting = false
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_276mu")
 texture = ExtResource("7_vafhv")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj42h3pon5mpb"]
+[gd_scene load_steps=10 format=3 uid="uid://bs1preyaej81e"]
 
 [ext_resource type="Texture2D" uid="uid://3lbad4ppcyd2" path="res://textures/16x16_rect.png" id="1_7r422"]
 [ext_resource type="Texture2D" uid="uid://bkdcm3y3pcpl6" path="res://textures/shiptileset.png" id="2_1w2jg"]
+[ext_resource type="PackedScene" uid="uid://cvhudtlceyxml" path="res://scenes/spike.tscn" id="3_0062j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6eg3"]
 texture = ExtResource("1_7r422")
@@ -50,12 +51,17 @@ texture_region_size = Vector2i(32, 32)
 4:3/0 = 0
 5:3/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_c5cgo"]
+scenes/1/scene = ExtResource("3_0062j")
+
 [sub_resource type="TileSet" id="TileSet_8p2xn"]
 tile_size = Vector2i(32, 32)
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_m6eg3")
 sources/1 = SubResource("TileSetAtlasSource_tsclp")
+sources/2 = SubResource("TileSetScenesCollectionSource_c5cgo")
 
 [node name="Base TileLayer" type="TileMapLayer"]
+texture_filter = 1
 tile_set = SubResource("TileSet_8p2xn")
