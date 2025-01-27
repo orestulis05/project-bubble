@@ -1,5 +1,4 @@
-# Bubbleman Adventures
-# (project-bubble)
+# Bubbleman Adventures (project-bubble)
 
 **A video game that was made for LT Game Jam 2025 by a team of developers.** 
 **Theme:** Bubbles
