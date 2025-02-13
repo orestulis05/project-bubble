@@ -9,7 +9,7 @@
 - Godot (engine)
 - Aseprite (art)
 - Discord (communication and tasks)
-- Github (version control)
+- Github (version control, merging)
 
 **More about the project and the team here:**
 https://globalgamejam.org/games/2025/bubbleman-adventure-9
