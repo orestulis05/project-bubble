@@ -14,4 +14,11 @@
 **More about the project and the team here:**
 https://globalgamejam.org/games/2025/bubbleman-adventure-9
 
+
+**Download:**
+- From repository releases page: https://github.com/orestulis05/project-bubble/releases/latest
+- From Global Game Jam website: https://globalgamejam.org/games/2025/bubbleman-adventure-9
+
+🙂
+
 ![thx4playing](https://github.com/user-attachments/assets/8542aa18-74ed-4253-958a-2707030c68d8)
